@@ -4,1175 +4,549 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bahati Okoth — IT Specialist</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
-:root {
-  --white: #ffffff;
-  --off: #f7f6f3;
-  --light: #eeecea;
-  --ink: #0f0e0d;
-  --ink2: #3a3835;
-  --muted: #8c8a86;
-  --blue: #1a56ff;
-  --blue-light: #e8edff;
-  --teal: #00b894;
-  --teal-light: #e0f7f3;
-  --radius: 20px;
-  --radius-sm: 12px;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--off);
-  color: var(--ink);
-  font-family: 'Outfit', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* NAV */
-nav {
-  position: fixed;
-  top: 1.5rem; left: 50%; transform: translateX(-50%);
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  background: rgba(255,255,255,0.75);
-  backdrop-filter: blur(24px);
-  border: 1px solid rgba(255,255,255,0.9);
-  border-radius: 100px;
-  padding: 0.7rem 1.2rem 0.7rem 1.5rem;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.08);
-}
-
-.nav-logo {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: 15px;
-  white-space: nowrap;
-}
-
-.nav-links {
-  display: flex;
-  gap: 0.25rem;
-  list-style: none;
-}
-
-.nav-links a {
-  display: block;
-  padding: 0.45rem 1rem;
-  font-size: 13.5px;
-  font-weight: 500;
-  color: var(--ink2);
-  text-decoration: none;
-  border-radius: 100px;
-  transition: background 0.2s, color 0.2s;
-}
-
-.nav-links a:hover { background: var(--off); color: var(--ink); }
-
-.nav-cta {
-  background: var(--ink);
-  color: var(--white) !important;
-  border-radius: 100px;
-  padding: 0.5rem 1.25rem !important;
-  font-size: 13.5px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
-  white-space: nowrap;
-}
-.nav-cta:hover { background: var(--blue) !important; transform: scale(1.02); }
-
-/* HERO */
-#hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 4rem;
-  padding: 10rem 6rem 6rem;
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--teal-light);
-  color: var(--teal);
-  font-size: 13px;
-  font-weight: 500;
-  padding: 6px 14px;
-  border-radius: 100px;
-  margin-bottom: 2rem;
-}
-
-.hero-badge::before {
-  content: '';
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--teal);
-  animation: blink 2s infinite;
-}
-
-@keyframes blink { 0%,100%{ opacity:1; } 50%{ opacity:0.3; } }
-
-h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(3.5rem, 6vw, 5.5rem);
-  font-weight: 800;
-  line-height: 1.0;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.5rem;
-}
-
-h1 em { font-style: normal; color: var(--blue); }
-
-.hero-desc {
-  font-size: 1.05rem;
-  color: var(--muted);
-  max-width: 440px;
-  margin-bottom: 2.5rem;
-  font-weight: 300;
-  line-height: 1.75;
-}
-
-.hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
-
-.btn-dark {
-  background: var(--ink);
-  color: var(--white);
-  padding: 0.85rem 2rem;
-  border-radius: 100px;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
-}
-.btn-dark:hover { background: var(--blue); transform: translateY(-2px); }
-
-.btn-ghost {
-  background: var(--white);
-  color: var(--ink);
-  border: 1px solid rgba(0,0,0,0.1);
-  padding: 0.85rem 2rem;
-  border-radius: 100px;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: border-color 0.2s, transform 0.15s;
-}
-.btn-ghost:hover { border-color: var(--ink); transform: translateY(-2px); }
-
-.hero-stats { display: flex; gap: 2.5rem; }
-
-.stat-val {
-  font-family: 'Syne', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.stat-lbl { font-size: 13px; color: var(--muted); margin-top: 4px; }
-
-.hero-right {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.hero-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 1.75rem;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.hero-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
-.hero-card.tall { grid-row: span 2; }
-.hero-card.accent { background: var(--ink); color: var(--white); }
-.hero-card.blue { background: var(--blue); color: var(--white); }
-
-.card-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
-
-.hero-card h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-}
-
-.hero-card p { font-size: 13px; opacity: 0.65; line-height: 1.55; }
-.hero-card.accent p, .hero-card.blue p { opacity: 0.75; }
-
-.skill-pill-group { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.2rem; }
-
-.skill-pill {
-  background: rgba(255,255,255,0.12);
-  color: var(--white);
-  border-radius: 100px;
-  padding: 6px 14px;
-  font-size: 12px;
-  font-weight: 500;
-  display: inline-block;
-}
-
-/* SHARED */
-.section-wrap { max-width: 1280px; margin: 0 auto; padding: 5rem 6rem; }
-
-.section-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
-
-.section-eyebrow {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--blue);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
-}
-
-h2 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-}
-
-/* SERVICES */
-#services { background: var(--white); }
-
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-
-.service-card {
-  background: var(--off);
-  border-radius: var(--radius);
-  padding: 2rem;
-  border: 1px solid rgba(0,0,0,0.04);
-  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
-}
-
-.service-card:hover {
-  background: var(--white);
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-}
-
-.service-card.featured-svc {
-  grid-column: span 2;
-  background: var(--ink);
-  color: var(--white);
-}
-
-.service-card.featured-svc:hover {
-  background: var(--blue);
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(26,86,255,0.25);
-}
-
-.service-num {
-  font-family: 'Syne', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--muted);
-  margin-bottom: 1.25rem;
-  letter-spacing: 0.05em;
-}
-
-.service-card.featured-svc .service-num { color: rgba(255,255,255,0.4); }
-
-.service-card h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.6rem;
-}
-
-.service-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
-.service-card.featured-svc p { color: rgba(255,255,255,0.6); }
-
-/* SKILLS */
-#skills { background: var(--off); }
-
-.skills-container { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; }
-
-.skills-intro p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-top: 1rem; }
-
-.skills-list { display: flex; flex-direction: column; gap: 1rem; }
-
-.skill-row {
-  background: var(--white);
-  border-radius: var(--radius-sm);
-  padding: 1.5rem 1.75rem;
-  display: grid;
-  grid-template-columns: 2.5rem 1fr auto;
-  align-items: center;
-  gap: 1.25rem;
-  border: 1px solid rgba(0,0,0,0.05);
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-
-.skill-row:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); transform: translateX(4px); }
-
-.skill-emoji { font-size: 1.5rem; }
-
-.skill-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 3px; }
-
-.skill-desc { font-size: 13px; color: var(--muted); }
-
-.skill-tags-row { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
-
-.stag {
-  font-size: 12px;
-  font-weight: 500;
-  padding: 4px 12px;
-  border-radius: 100px;
-  background: var(--blue-light);
-  color: var(--blue);
-}
-.stag.green { background: var(--teal-light); color: var(--teal); }
-.stag.dark { background: var(--light); color: var(--ink2); }
-
-/* PROJECTS */
-#projects { background: var(--white); }
-
-.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-
-.proj-card {
-  background: var(--off);
-  border-radius: var(--radius);
-  padding: 2.25rem;
-  border: 1px solid rgba(0,0,0,0.04);
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-
-.proj-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
-
-.proj-card.featured {
-  grid-column: span 2;
-  background: linear-gradient(135deg, #0f0e0d 0%, #1a2040 100%);
-  color: var(--white);
-}
-
-.proj-type {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 5px 14px;
-  border-radius: 100px;
-  background: var(--blue-light);
-  color: var(--blue);
-  margin-bottom: 1.5rem;
-}
-
-.proj-card.featured .proj-type { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); }
-
-.proj-card h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 800;
-  margin-bottom: 0.75rem;
-  line-height: 1.2;
-}
-
-.proj-card p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
-.proj-card.featured p { color: rgba(255,255,255,0.55); }
-
-.proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-
-.ptag {
-  font-size: 12px;
-  font-weight: 500;
-  padding: 4px 12px;
-  border-radius: 100px;
-  background: rgba(0,0,0,0.06);
-  color: var(--ink2);
-}
-
-.proj-card.featured .ptag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.75); }
-
-.proj-num {
-  position: absolute;
-  top: 2rem; right: 2.25rem;
-  font-family: 'Syne', sans-serif;
-  font-size: 5rem;
-  font-weight: 800;
-  color: rgba(0,0,0,0.04);
-  line-height: 1;
-  user-select: none;
-}
-
-.proj-card.featured .proj-num { color: rgba(255,255,255,0.04); }
-
-/* CONTACT */
-#contact { background: var(--off); }
-
-.contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-
-.contact-left p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-top: 1rem; margin-bottom: 2rem; }
-
-.contact-highlight {
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 2rem;
-  border: 1px solid rgba(0,0,0,0.06);
-}
-
-.contact-highlight h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-}
-
-.contact-highlight > p { font-size: 14px; color: var(--muted); margin-bottom: 1.5rem; }
-
-.contact-items { display: flex; flex-direction: column; gap: 1rem; }
-
-.ci {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: var(--off);
-  border-radius: var(--radius-sm);
-  padding: 1rem 1.25rem;
-}
-
-.ci-icon {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  background: var(--blue-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.ci-label {
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 500;
-  margin-bottom: 2px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.ci-val { font-size: 14px; font-weight: 500; color: var(--ink); }
-
-/* EXPERIENCE */
-#experience { background: var(--white); }
-
-.exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
-
-.exp-card {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: 1.5rem;
-  background: var(--off);
-  border-radius: var(--radius);
-  padding: 2rem;
-  border: 1px solid rgba(0,0,0,0.04);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.exp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
-
-.exp-left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.exp-logo {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  background: var(--white);
-  border: 1px solid rgba(0,0,0,0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  flex-shrink: 0;
-}
-
-.exp-line {
-  width: 2px;
-  flex: 1;
-  background: rgba(0,0,0,0.06);
-  border-radius: 2px;
-  min-height: 20px;
-}
-
-.exp-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.75rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.exp-role {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--ink);
-}
-
-.exp-company {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--blue);
-  margin-top: 3px;
-}
-
-.exp-duration {
-  font-family: 'Syne', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 5px 14px;
-  background: var(--blue-light);
-  color: var(--blue);
-  border-radius: 100px;
-  white-space: nowrap;
-}
-
-.exp-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
-
-@media(max-width: 768px) {
-  .exp-card { grid-template-columns: 1fr; }
-  .exp-left { flex-direction: row; }
-  .exp-line { width: 100%; height: 2px; flex: none; min-height: auto; }
-}
-
-/* FORM */
-.form-group { margin-bottom: 1.1rem; }
-
-.form-label {
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink2);
-  margin-bottom: 6px;
-}
-
-.form-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1.5px solid rgba(0,0,0,0.1);
-  border-radius: var(--radius-sm);
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-  color: var(--ink);
-  background: var(--off);
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  appearance: none;
-}
-
-.form-input:focus {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(26,86,255,0.1);
-  background: var(--white);
-}
-
-.form-textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
-
-.form-submit {
-  width: 100%;
-  border: none;
-  cursor: pointer;
-  font-family: 'Outfit', sans-serif;
-  font-size: 15px;
-  padding: 0.95rem;
-  margin-top: 0.5rem;
-}
-
-.form-success {
-  display: none;
-  margin-top: 1rem;
-  background: var(--teal-light);
-  color: var(--teal);
-  border-radius: var(--radius-sm);
-  padding: 0.85rem 1rem;
-  font-size: 14px;
-  font-weight: 500;
-  text-align: center;
-}
-
-/* FOOTER */
-footer {
-  background: var(--ink);
-  color: var(--white);
-  padding: 2.5rem 6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-name { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; }
-
-footer p { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 3px; }
-
-.footer-avail {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--teal);
-  font-weight: 500;
-}
-
-.footer-avail::before {
-  content: '';
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--teal);
-  animation: blink 2s infinite;
-}
-
-/* ANIMATIONS */
-.fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-}
-.fade-up.in { opacity: 1; transform: translateY(0); }
-
-/* HAMBURGER */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 4px;
-  background: none;
-  border: none;
-}
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--ink);
-  border-radius: 2px;
-  transition: all 0.3s;
-}
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-/* MOBILE MENU DRAWER */
-.mobile-menu {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(20px);
-  z-index: 150;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
-.mobile-menu.open { display: flex; }
-.mobile-menu a {
-  font-family: 'Syne', sans-serif;
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--ink);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.mobile-menu a:hover { color: var(--blue); }
-.mobile-menu .close-btn {
-  position: absolute;
-  top: 1.5rem; right: 1.5rem;
-  background: var(--off);
-  border: none;
-  border-radius: 50%;
-  width: 44px; height: 44px;
-  font-size: 20px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-}
-
-/* TABLET: 768px - 1024px */
-@media(max-width: 1024px) {
-  #hero { padding: 9rem 3rem 5rem; gap: 2.5rem; }
-  .section-wrap { padding: 4.5rem 3rem; }
-  .services-grid { grid-template-columns: 1fr 1fr; }
-  .service-card.featured-svc { grid-column: span 2; }
-  footer { padding: 2rem 3rem; }
-}
-
-/* MOBILE: up to 768px */
-@media(max-width: 768px) {
-  /* Nav */
-  nav {
-    top: 1rem;
-    padding: 0.6rem 0.75rem 0.6rem 1.25rem;
-    gap: 1rem;
-    width: calc(100% - 2rem);
-  }
-  .nav-links { display: none; }
-  .nav-cta { display: none; }
-  .hamburger { display: flex; }
-
-  /* Hero */
-  #hero {
-    grid-template-columns: 1fr;
-    padding: 7rem 1.5rem 4rem;
-    min-height: auto;
-    gap: 2rem;
-  }
-  .hero-right { display: none; }
-  h1 { font-size: 3rem; }
-  .hero-desc { font-size: 1rem; }
-  .hero-stats { gap: 1.5rem; }
-  .stat-val { font-size: 1.8rem; }
-
-  /* Sections */
-  .section-wrap { padding: 3.5rem 1.5rem; }
-  h2 { font-size: 1.9rem; }
-
-  /* Services */
-  .services-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .service-card.featured-svc { grid-column: span 1; }
-
-  /* Skills */
-  .skills-container { grid-template-columns: 1fr; gap: 2rem; }
-  .skill-row { grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.25rem; }
-  .skill-tags-row { display: none; }
-
-  /* Projects */
-  .projects-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .proj-card.featured { grid-column: span 1; }
-  .proj-num { font-size: 3.5rem; }
-
-  /* Contact */
-  .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
-  .contact-highlight { padding: 1.5rem; }
-
-  /* Footer */
-  footer { padding: 1.75rem 1.5rem; flex-direction: column; gap: 0.75rem; text-align: center; }
-}
-
-/* SMALL MOBILE: up to 400px */
-@media(max-width: 400px) {
-  h1 { font-size: 2.4rem; }
-  .hero-btns { flex-direction: column; }
-  .btn-dark, .btn-ghost { text-align: center; }
-  .hero-stats { flex-wrap: wrap; gap: 1.25rem; }
-  .stat-val { font-size: 1.6rem; }
+:root{
+  --bg:#08090d;
+  --surface:#0f1117;
+  --surface2:#161822;
+  --border:rgba(255,255,255,0.06);
+  --white:#ffffff;
+  --text:#e8e9f0;
+  --muted:#6b6e80;
+  --gold:#c9a84c;
+  --gold2:#f0d080;
+  --gold-dim:rgba(201,168,76,0.12);
+  --teal:#00c9a7;
+  --teal-dim:rgba(0,201,167,0.1);
+  --r:16px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+
+/* NOISE OVERLAY */
+body::before{content:"";position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 5rem;background:rgba(8,9,13,0.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-photo{width:36px;height:36px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--gold);flex-shrink:0}
+.nav-name{font-family:"Playfair Display",serif;font-size:1rem;font-weight:700;color:var(--white);letter-spacing:0.01em}
+.nav-links{display:flex;gap:0.25rem;list-style:none}
+.nav-links a{display:block;padding:.45rem 1rem;font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;border-radius:100px;letter-spacing:0.03em;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,0.05)}
+.nav-cta{background:var(--gold);color:#08090d;border-radius:100px;padding:.55rem 1.4rem;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.04em;transition:background .2s,transform .15s}
+.nav-cta:hover{background:var(--gold2);transform:scale(1.03)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(8,9,13,0.97);backdrop-filter:blur(24px);z-index:150;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:"Playfair Display",serif;font-size:2.2rem;font-weight:700;color:var(--white);text-decoration:none;transition:color .2s}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu .close-btn{position:absolute;top:1.5rem;right:1.5rem;background:var(--surface2);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:18px;cursor:pointer;color:var(--white);display:flex;align-items:center;justify-content:center}
+
+/* ── HERO ── */
+#hero{position:relative;z-index:1;min-height:100vh;display:grid;grid-template-columns:1.1fr 0.9fr;align-items:center;gap:4rem;padding:9rem 5rem 5rem;max-width:1300px;margin:0 auto}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.hero-eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
+.hero-name-tag{font-size:1rem;font-weight:500;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem}
+h1{font-family:"Playfair Display",serif;font-size:clamp(3.2rem,5.5vw,5.8rem);font-weight:900;line-height:1.0;letter-spacing:-.02em;color:var(--white);margin-bottom:1.75rem}
+h1 .gold{color:var(--gold)}
+h1 .outline{-webkit-text-stroke:1px rgba(255,255,255,0.3);color:transparent}
+.hero-desc{font-size:1.05rem;color:var(--muted);max-width:480px;margin-bottom:2.5rem;font-weight:300;line-height:1.85}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:3.5rem}
+.btn-gold{background:var(--gold);color:#08090d;padding:.9rem 2.2rem;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;letter-spacing:.04em;transition:background .2s,transform .2s,box-shadow .2s}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,168,76,0.3)}
+.btn-line{background:transparent;color:var(--text);border:1px solid var(--border);padding:.9rem 2.2rem;border-radius:100px;font-size:14px;font-weight:500;text-decoration:none;transition:border-color .2s,transform .2s}
+.btn-line:hover{border-color:rgba(255,255,255,0.3);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border)}
+.stat-num{font-family:"Playfair Display",serif;font-size:2.4rem;font-weight:900;color:var(--gold);line-height:1}
+.stat-lbl{font-size:12px;color:var(--muted);margin-top:5px;letter-spacing:.04em}
+
+/* Hero right — profile card */
+.hero-right{display:flex;flex-direction:column;gap:1.25rem;align-items:flex-end}
+.profile-card{background:var(--surface);border:1px solid var(--border);border-radius:24px;overflow:hidden;width:100%;max-width:340px;position:relative}
+.profile-card-img{width:100%;height:280px;object-fit:cover;object-position:center top;display:block}
+.profile-card-body{padding:1.5rem}
+.profile-card-name{font-family:"Playfair Display",serif;font-size:1.3rem;font-weight:800;color:var(--white);margin-bottom:4px}
+.profile-card-role{font-size:13px;color:var(--gold);font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.profile-card-location{font-size:13px;color:var(--muted);margin-top:6px;display:flex;align-items:center;gap:6px}
+.avail-badge{display:inline-flex;align-items:center;gap:7px;background:var(--teal-dim);color:var(--teal);font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;border:1px solid rgba(0,201,167,0.2);margin-top:1rem}
+.avail-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.mini-cards{display:flex;gap:.85rem;width:100%;max-width:340px}
+.mini-card{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.25rem;text-align:center;transition:border-color .25s,transform .25s}
+.mini-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-3px)}
+.mini-card-icon{font-size:1.5rem;margin-bottom:.5rem;display:block}
+.mini-card-label{font-size:12px;color:var(--muted);line-height:1.4}
+
+/* ── SHARED ── */
+.section-wrap{max-width:1300px;margin:0 auto;padding:6rem 5rem;position:relative;z-index:1}
+.sec-tag{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;display:flex;align-items:center;gap:10px}
+.sec-tag::before{content:"";width:20px;height:1px;background:var(--gold)}
+h2{font-family:"Playfair Display",serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:900;color:var(--white);letter-spacing:-.02em;line-height:1.1}
+.divider{width:100%;height:1px;background:var(--border);margin:0}
+
+/* ── SERVICES ── */
+#services{background:var(--surface)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-top:3rem}
+.svc{background:var(--surface);padding:2.25rem;transition:background .25s}
+.svc:hover{background:var(--surface2)}
+.svc.hero-svc{grid-column:span 2;background:linear-gradient(135deg,rgba(201,168,76,0.08),rgba(201,168,76,0.02));border-right:1px solid var(--border)}
+.svc-num{font-size:11px;font-weight:600;color:var(--gold);letter-spacing:.15em;margin-bottom:1.25rem}
+.svc-icon{font-size:1.75rem;margin-bottom:1rem;display:block}
+.svc h3{font-family:"Playfair Display",serif;font-size:1.15rem;font-weight:800;color:var(--white);margin-bottom:.6rem}
+.svc p{font-size:13.5px;color:var(--muted);line-height:1.7}
+
+/* ── SKILLS ── */
+#skills{background:var(--bg)}
+.skills-wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:5rem;align-items:start;margin-top:3rem}
+.skills-intro p{font-size:15px;color:var(--muted);line-height:1.9;margin-top:1rem}
+.skill-items{display:flex;flex-direction:column;gap:.85rem}
+.skill-item{display:grid;grid-template-columns:3rem 1fr auto;align-items:center;gap:1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.35rem 1.5rem;transition:border-color .25s,transform .25s}
+.skill-item:hover{border-color:rgba(201,168,76,0.25);transform:translateX(6px)}
+.sk-icon{font-size:1.4rem}
+.sk-name{font-family:"Playfair Display",serif;font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:3px}
+.sk-desc{font-size:12.5px;color:var(--muted)}
+.sk-tags{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-end}
+.sk-tag{font-size:11px;font-weight:500;padding:3px 10px;border-radius:100px;background:var(--gold-dim);color:var(--gold);border:1px solid rgba(201,168,76,0.2)}
+.sk-tag.t{background:var(--teal-dim);color:var(--teal);border-color:rgba(0,201,167,0.2)}
+.sk-tag.w{background:rgba(255,255,255,0.05);color:var(--muted);border-color:var(--border)}
+
+/* ── EXPERIENCE ── */
+#experience{background:var(--surface)}
+.exp-wrap{display:flex;flex-direction:column;gap:1.25rem;margin-top:3rem}
+.exp-card{display:grid;grid-template-columns:64px 1fr;gap:1.75rem;background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:2.25rem;transition:border-color .3s,transform .3s}
+.exp-card:hover{border-color:rgba(201,168,76,0.25);transform:translateY(-3px)}
+.exp-icon-wrap{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.exp-icon{width:52px;height:52px;border-radius:14px;background:var(--gold-dim);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.exp-line2{width:2px;flex:1;background:var(--border);border-radius:2px;min-height:16px}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.75rem;margin-bottom:.75rem}
+.exp-role{font-family:"Playfair Display",serif;font-size:1.2rem;font-weight:800;color:var(--white)}
+.exp-co{font-size:13px;font-weight:500;color:var(--gold);margin-top:3px;letter-spacing:.04em}
+.exp-dur{font-size:12px;font-weight:600;padding:5px 14px;background:var(--gold-dim);color:var(--gold);border-radius:100px;border:1px solid rgba(201,168,76,0.2);white-space:nowrap}
+.exp-desc{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:1rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;font-weight:500;padding:4px 12px;border-radius:100px;background:rgba(255,255,255,0.04);color:var(--muted);border:1px solid var(--border)}
+
+/* ── PROJECTS ── */
+#projects{background:var(--bg)}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:3rem}
+.proj{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2.25rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.proj:hover{border-color:rgba(201,168,76,0.2);transform:translateY(-4px)}
+.proj.wide{grid-column:span 2;background:linear-gradient(135deg,var(--surface2),var(--surface))}
+.proj-num{position:absolute;top:1.75rem;right:2rem;font-family:"Playfair Display",serif;font-size:5rem;font-weight:900;color:rgba(255,255,255,0.025);line-height:1;user-select:none}
+.proj-cat{display:inline-block;font-size:11px;font-weight:600;padding:4px 13px;border-radius:100px;background:var(--gold-dim);color:var(--gold);border:1px solid rgba(201,168,76,0.2);letter-spacing:.06em;margin-bottom:1.25rem}
+.proj h3{font-family:"Playfair Display",serif;font-size:1.2rem;font-weight:800;color:var(--white);margin-bottom:.65rem;line-height:1.25}
+.proj p{font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:1.25rem}
+
+/* ── CONTACT ── */
+#contact{background:var(--surface)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
+.contact-intro p{font-size:15px;color:var(--muted);line-height:1.85;margin-top:1rem;margin-bottom:2rem}
+.contact-info{display:flex;flex-direction:column;gap:.85rem;margin-bottom:2rem}
+.ci{display:flex;align-items:center;gap:1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1rem 1.25rem}
+.ci-ic{width:40px;height:40px;border-radius:10px;background:var(--gold-dim);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ci-lbl{font-size:11px;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
+.ci-val{font-size:14px;font-weight:500;color:var(--text)}
+.form-box{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:2rem}
+.form-box h3{font-family:"Playfair Display",serif;font-size:1.4rem;font-weight:800;color:var(--white);margin-bottom:.4rem}
+.form-box>p{font-size:13.5px;color:var(--muted);margin-bottom:1.75rem}
+.fg{margin-bottom:1.1rem}
+.fl{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:6px;letter-spacing:.06em;text-transform:uppercase}
+.fi{width:100%;padding:.8rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-family:"DM Sans",sans-serif;font-size:14px;color:var(--text);background:var(--surface);outline:none;transition:border-color .2s,box-shadow .2s;appearance:none}
+.fi:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.1)}
+.fi::placeholder{color:var(--muted)}
+textarea.fi{resize:vertical;min-height:110px;line-height:1.6}
+.fsub{width:100%;border:none;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:15px;font-weight:600;padding:.95rem;margin-top:.5rem;border-radius:100px;background:var(--gold);color:#08090d;letter-spacing:.04em;transition:background .2s,transform .2s}
+.fsub:hover{background:var(--gold2);transform:translateY(-2px)}
+.fsuccess{display:none;margin-top:1rem;background:var(--teal-dim);color:var(--teal);border:1px solid rgba(0,201,167,0.2);border-radius:10px;padding:.85rem 1rem;font-size:14px;font-weight:500;text-align:center}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:1;background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 5rem;display:flex;justify-content:space-between;align-items:center}
+.foot-brand{font-family:"Playfair Display",serif;font-size:1.1rem;font-weight:800;color:var(--white)}
+footer p{font-size:13px;color:var(--muted);margin-top:3px}
+.foot-avail{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--teal);font-weight:500}
+.foot-avail::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);animation:blink 2s infinite}
+
+/* ── ANIMATIONS ── */
+.fade{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  nav{padding:1rem 2.5rem}
+  #hero{padding:8rem 2.5rem 5rem;gap:3rem}
+  .section-wrap{padding:5rem 2.5rem}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .svc.hero-svc{grid-column:span 2}
+  footer{padding:2rem 2.5rem}
+}
+@media(max-width:768px){
+  nav{padding:.9rem 1.5rem}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  #hero{grid-template-columns:1fr;padding:7rem 1.5rem 4rem;min-height:auto}
+  .hero-right{align-items:center}
+  .profile-card,.mini-cards{max-width:100%}
+  h1{font-size:2.8rem}
+  .hero-stats{gap:1.5rem;flex-wrap:wrap}
+  .section-wrap{padding:4rem 1.5rem}
+  h2{font-size:2rem}
+  .services-grid{grid-template-columns:1fr;border-radius:16px}
+  .svc.hero-svc{grid-column:span 1;border-right:none;border-bottom:1px solid var(--border)}
+  .skills-wrap{grid-template-columns:1fr;gap:2.5rem}
+  .sk-tags{display:none}
+  .skill-item{grid-template-columns:2.5rem 1fr}
+  .exp-card{grid-template-columns:1fr;gap:1rem}
+  .exp-icon-wrap{flex-direction:row}
+  .exp-line2{width:100%;height:2px;flex:none;min-height:auto}
+  .proj-grid{grid-template-columns:1fr}
+  .proj.wide{grid-column:span 1}
+  .contact-grid{grid-template-columns:1fr;gap:3rem}
+  footer{padding:1.75rem 1.5rem;flex-direction:column;gap:.75rem;text-align:center}
+}
+@media(max-width:400px){
+  h1{font-size:2.2rem}
+  .hero-btns{flex-direction:column}
+  .btn-gold,.btn-line{text-align:center}
+  .stat-num{font-size:2rem}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <span class="nav-logo">Bahati Okoth</span>
+  <div class="nav-brand">
+    <img src="bahati.png" alt="Bahati Okoth" class="nav-photo">
+    <span class="nav-name">Bahati Okoth</span>
+  </div>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certifications</a></li>
     <li><a href="#projects">Work</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Hire me</a>
+  <a href="#contact" class="nav-cta">Hire Me</a>
   <button class="hamburger" onclick="toggleMenu(this)" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <button class="close-btn" onclick="closeMenu()">✕</button>
+  <button class="close-btn" onclick="closeMenu()">&#x2715;</button>
   <a href="#services" onclick="closeMenu()">Services</a>
   <a href="#skills" onclick="closeMenu()">Skills</a>
   <a href="#experience" onclick="closeMenu()">Experience</a>
+  <a href="#certifications" onclick="closeMenu()">Certifications</a>
   <a href="#projects" onclick="closeMenu()">Work</a>
-  <a href="#contact" onclick="closeMenu()" style="color:var(--blue)">Hire me →</a>
+  <a href="#contact" onclick="closeMenu()" style="color:var(--gold)">Hire Me</a>
 </div>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-left fade-up">
-    <div class="hero-badge">Available for hire</div>
-    <h1>IT<br><em>Specialist</em></h1>
-    <p class="hero-desc">I secure networks, fix systems, and keep your technology running smoothly — from small offices to enterprise setups.</p>
+  <div class="hero-left fade">
+    <div class="hero-eyebrow">IT Specialist &amp; Technology Expert</div>
+    <div class="hero-name-tag">Bahati Okoth</div>
+    <h1>Building <span class="gold">Secure</span><br><span class="outline">Reliable</span><br>IT Solutions</h1>
+    <p class="hero-desc">Delivering world-class networking, cybersecurity, and technology management to businesses and organizations across Kenya. 5+ years of hands-on expertise with industry leaders.</p>
     <div class="hero-btns">
-      <a href="#contact" class="btn-dark">Get in touch →</a>
-      <a href="#projects" class="btn-ghost">View my work</a>
+      <a href="#contact" class="btn-gold">Get in Touch &#8594;</a>
+      <a href="#experience" class="btn-line">View Experience</a>
     </div>
     <div class="hero-stats">
-      <div>
-        <div class="stat-val">5+</div>
-        <div class="stat-lbl">Years experience</div>
-      </div>
-      <div>
-        <div class="stat-val">50+</div>
-        <div class="stat-lbl">Devices serviced</div>
-      </div>
-      <div>
-        <div class="stat-val">100%</div>
-        <div class="stat-lbl">Satisfaction</div>
-      </div>
+      <div><div class="stat-num">5+</div><div class="stat-lbl">Years experience</div></div>
+      <div><div class="stat-num">50+</div><div class="stat-lbl">Devices serviced</div></div>
+      <div><div class="stat-num">2</div><div class="stat-lbl">Major employers</div></div>
+      <div><div class="stat-num">100%</div><div class="stat-lbl">Satisfaction</div></div>
     </div>
   </div>
-
-  <div class="hero-right fade-up" style="transition-delay:0.15s">
-    <div class="hero-card tall accent">
-      <span class="card-icon">🔒</span>
-      <h3>Cybersecurity</h3>
-      <p>Firewalls, audits, threat mitigation</p>
-      <div class="skill-pill-group">
-        <span class="skill-pill">Firewall setup</span>
-        <span class="skill-pill">Vulnerability audits</span>
-        <span class="skill-pill">Endpoint protection</span>
-        <span class="skill-pill">Data encryption</span>
+  <div class="hero-right fade" style="transition-delay:.15s">
+    <div class="profile-card">
+      <img src="bahati.png" alt="Bahati Okoth" class="profile-card-img">
+      <div class="profile-card-body">
+        <div class="profile-card-name">Bahati Okoth</div>
+        <div class="profile-card-role">IT Specialist</div>
+        <div class="profile-card-location">&#128205; Kisumu, Kenya</div>
+        <div class="avail-badge">Available for hire</div>
       </div>
     </div>
-    <div class="hero-card blue">
-      <span class="card-icon">🌐</span>
-      <h3>Networking</h3>
-      <p>LAN/WAN, routing & switching</p>
-    </div>
-    <div class="hero-card">
-      <span class="card-icon">🖥️</span>
-      <h3>PC Repair</h3>
-      <p>Hardware, OS, data recovery</p>
+    <div class="mini-cards">
+      <div class="mini-card"><span class="mini-card-icon">&#127760;</span><div class="mini-card-label">Networking</div></div>
+      <div class="mini-card"><span class="mini-card-icon">&#128274;</span><div class="mini-card-label">Cybersecurity</div></div>
+      <div class="mini-card"><span class="mini-card-icon">&#128187;</span><div class="mini-card-label">PC Repair</div></div>
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
 
 <!-- SERVICES -->
 <section id="services">
   <div class="section-wrap">
-    <div class="section-top fade-up">
-      <div>
-        <div class="section-eyebrow">Services</div>
-        <h2>What I do for you</h2>
+    <div class="fade"><div class="sec-tag">What I offer</div><h2>Professional Services</h2></div>
+    <div class="services-grid fade">
+      <div class="svc hero-svc">
+        <div class="svc-num">01</div>
+        <span class="svc-icon">&#127760;</span>
+        <h3>Network Design &amp; Setup</h3>
+        <p>End-to-end network installation for homes and enterprises — structured cabling, routers, switches, VLANs, and Wi-Fi optimized for performance and reliability.</p>
       </div>
-    </div>
-    <div class="services-grid">
-      <div class="service-card featured-svc fade-up">
-        <div class="service-num">01</div>
-        <h3>Network design & setup</h3>
-        <p>End-to-end network installation — structured cabling, routers, switches, VLANs, and Wi-Fi for homes and offices of any size.</p>
+      <div class="svc">
+        <div class="svc-num">02</div>
+        <span class="svc-icon">&#128274;</span>
+        <h3>Security Audit</h3>
+        <p>Full vulnerability assessment and a clear remediation roadmap to keep your systems protected.</p>
       </div>
-      <div class="service-card fade-up">
-        <div class="service-num">02</div>
-        <h3>Security audit</h3>
-        <p>Full assessment of your IT environment — vulnerabilities, misconfigurations, and a clear remediation roadmap.</p>
-      </div>
-      <div class="service-card fade-up">
-        <div class="service-num">03</div>
-        <h3>PC repair & maintenance</h3>
+      <div class="svc">
+        <div class="svc-num">03</div>
+        <span class="svc-icon">&#128187;</span>
+        <h3>PC Repair &amp; Maintenance</h3>
         <p>Hardware fixes, OS installations, virus removal, and routine upkeep for peak performance.</p>
       </div>
-      <div class="service-card fade-up">
-        <div class="service-num">04</div>
-        <h3>IT support</h3>
-        <p>On-site and remote helpdesk for businesses — troubleshooting, system admin, and user assistance.</p>
+      <div class="svc">
+        <div class="svc-num">04</div>
+        <span class="svc-icon">&#9889;</span>
+        <h3>IT Support</h3>
+        <p>On-site and remote helpdesk support — troubleshooting, system admin, and user assistance.</p>
       </div>
-      <div class="service-card fade-up">
-        <div class="service-num">05</div>
-        <h3>Data backup & recovery</h3>
-        <p>Automated backup solutions and emergency data recovery from failed drives and corrupted systems.</p>
+      <div class="svc">
+        <div class="svc-num">05</div>
+        <span class="svc-icon">&#128190;</span>
+        <h3>Data Backup &amp; Recovery</h3>
+        <p>Automated backup solutions and emergency data recovery from failed or corrupted systems.</p>
       </div>
-      <div class="service-card fade-up">
-        <div class="service-num">06</div>
-        <h3>CCTV & surveillance</h3>
-        <p>IP camera and NVR system installation and configuration for home and business security.</p>
+      <div class="svc">
+        <div class="svc-num">06</div>
+        <span class="svc-icon">&#128247;</span>
+        <h3>CCTV &amp; Surveillance</h3>
+        <p>IP camera and NVR system installation for comprehensive home and business security.</p>
       </div>
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
 
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-wrap">
-    <div class="skills-container">
-      <div class="fade-up">
-        <div class="section-eyebrow">Expertise</div>
-        <h2>Core skills</h2>
-        <p class="skills-intro">A diverse technical background built on real-world experience solving IT problems in Kisumu and beyond.</p>
+    <div class="skills-wrap">
+      <div class="fade">
+        <div class="sec-tag">Expertise</div>
+        <h2>Core Skills</h2>
+        <p style="font-size:15px;color:var(--muted);line-height:1.9;margin-top:1rem">A diverse technical background built through real-world engagements with corporations, government-linked organizations, and community societies across Kenya.</p>
       </div>
-      <div class="skills-list">
-        <div class="skill-row fade-up">
-          <span class="skill-emoji">🌐</span>
-          <div>
-            <div class="skill-name">Networking</div>
-            <div class="skill-desc">LAN/WAN, TCP/IP, DNS, DHCP, VPN, routing</div>
-          </div>
-          <div class="skill-tags-row">
-            <span class="stag">Cisco</span>
-            <span class="stag">VLANs</span>
-            <span class="stag">VPN</span>
-          </div>
+      <div class="skill-items">
+        <div class="skill-item fade">
+          <span class="sk-icon">&#127760;</span>
+          <div><div class="sk-name">Networking</div><div class="sk-desc">LAN/WAN, TCP/IP, DNS, DHCP, VPN, routing</div></div>
+          <div class="sk-tags"><span class="sk-tag">Cisco</span><span class="sk-tag">VLANs</span><span class="sk-tag">VPN</span></div>
         </div>
-        <div class="skill-row fade-up">
-          <span class="skill-emoji">🔒</span>
-          <div>
-            <div class="skill-name">Cybersecurity</div>
-            <div class="skill-desc">Firewalls, threat analysis, encryption, audits</div>
-          </div>
-          <div class="skill-tags-row">
-            <span class="stag green">Firewall</span>
-            <span class="stag green">Audits</span>
-            <span class="stag green">Encryption</span>
-          </div>
+        <div class="skill-item fade">
+          <span class="sk-icon">&#128274;</span>
+          <div><div class="sk-name">Cybersecurity</div><div class="sk-desc">Firewalls, threat analysis, encryption, audits</div></div>
+          <div class="sk-tags"><span class="sk-tag t">Firewall</span><span class="sk-tag t">Audits</span><span class="sk-tag t">Encryption</span></div>
         </div>
-        <div class="skill-row fade-up">
-          <span class="skill-emoji">🖥️</span>
-          <div>
-            <div class="skill-name">Computer repair</div>
-            <div class="skill-desc">Hardware, Windows/Linux, data recovery, upgrades</div>
-          </div>
-          <div class="skill-tags-row">
-            <span class="stag dark">Hardware</span>
-            <span class="stag dark">Windows</span>
-            <span class="stag dark">Linux</span>
-          </div>
+        <div class="skill-item fade">
+          <span class="sk-icon">&#128187;</span>
+          <div><div class="sk-name">Computer Repair</div><div class="sk-desc">Hardware, Windows/Linux, data recovery, upgrades</div></div>
+          <div class="sk-tags"><span class="sk-tag w">Hardware</span><span class="sk-tag w">Windows</span><span class="sk-tag w">Linux</span></div>
         </div>
-        <div class="skill-row fade-up">
-          <span class="skill-emoji">☁️</span>
-          <div>
-            <div class="skill-name">Systems administration</div>
-            <div class="skill-desc">Server setup, user management, patch management</div>
-          </div>
-          <div class="skill-tags-row">
-            <span class="stag">Active Directory</span>
-            <span class="stag">Backup</span>
-          </div>
+        <div class="skill-item fade">
+          <span class="sk-icon">&#9729;</span>
+          <div><div class="sk-name">Systems Administration</div><div class="sk-desc">Server setup, user management, patch management</div></div>
+          <div class="sk-tags"><span class="sk-tag">Active Directory</span><span class="sk-tag">Backup</span></div>
         </div>
-        <div class="skill-row fade-up">
-          <span class="skill-emoji">📡</span>
-          <div>
-            <div class="skill-name">CCTV & surveillance</div>
-            <div class="skill-desc">IP cameras, NVR/DVR setup, remote monitoring</div>
-          </div>
-          <div class="skill-tags-row">
-            <span class="stag green">Installation</span>
-            <span class="stag green">Config</span>
-          </div>
+        <div class="skill-item fade">
+          <span class="sk-icon">&#128202;</span>
+          <div><div class="sk-name">Data Management</div><div class="sk-desc">Collection, verification, analysis, reporting</div></div>
+          <div class="sk-tags"><span class="sk-tag t">Analysis</span><span class="sk-tag t">Reporting</span></div>
+        </div>
+        <div class="skill-item fade">
+          <span class="sk-icon">&#128225;</span>
+          <div><div class="sk-name">CCTV &amp; Surveillance</div><div class="sk-desc">IP cameras, NVR/DVR setup, remote monitoring</div></div>
+          <div class="sk-tags"><span class="sk-tag w">Installation</span><span class="sk-tag w">Config</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
 
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-wrap">
-    <div class="section-top fade-up">
-      <div>
-        <div class="section-eyebrow">Experience</div>
-        <h2>Work history</h2>
-      </div>
-    </div>
-    <div class="exp-list">
-
-      <div class="exp-card fade-up">
-        <div class="exp-left">
-          <div class="exp-logo">🌍</div>
-          <div class="exp-line"></div>
+    <div class="fade"><div class="sec-tag">Work History</div><h2>Professional Experience</h2></div>
+    <div class="exp-wrap">
+      <div class="exp-card fade">
+        <div class="exp-icon-wrap">
+          <div class="exp-icon">&#127758;</div>
+          <div class="exp-line2"></div>
         </div>
-        <div class="exp-right">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">County IT Assistant</div>
-              <div class="exp-company">Abt Global</div>
-            </div>
-            <div class="exp-duration">4.5 Years</div>
+        <div>
+          <div class="exp-top">
+            <div><div class="exp-role">County IT Assistant</div><div class="exp-co">Abt Global</div></div>
+            <div class="exp-dur">4.5 Years</div>
           </div>
           <p class="exp-desc">Provided IT support and systems management at county level — maintaining network infrastructure, supporting end users, managing data systems, and ensuring smooth day-to-day technology operations across the organization.</p>
-          <div class="proj-tags" style="margin-top:1rem;">
-            <span class="ptag">IT support</span>
-            <span class="ptag">Networking</span>
-            <span class="ptag">Data management</span>
-            <span class="ptag">Systems admin</span>
-          </div>
+          <div class="tags"><span class="tag">IT Support</span><span class="tag">Networking</span><span class="tag">Data Management</span><span class="tag">Systems Admin</span></div>
         </div>
       </div>
-
-      <div class="exp-card fade-up">
-        <div class="exp-left">
-          <div class="exp-logo">🏭</div>
-          <div class="exp-line"></div>
+      <div class="exp-card fade">
+        <div class="exp-icon-wrap">
+          <div class="exp-icon">&#127981;</div>
+          <div class="exp-line2"></div>
         </div>
-        <div class="exp-right">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">IT Consultant</div>
-              <div class="exp-company">Kibos Sugar Company</div>
-            </div>
-            <div class="exp-duration">1 Year</div>
+        <div>
+          <div class="exp-top">
+            <div><div class="exp-role">IT Consultant</div><div class="exp-co">Kibos Sugar Company</div></div>
+            <div class="exp-dur">1 Year</div>
           </div>
-          <p class="exp-desc">Served as IT Consultant for Kibos Sugar Company — overseeing network infrastructure, managing databases, providing technical guidance, and implementing IT solutions to support business operations across the facility.</p>
-          <div class="proj-tags" style="margin-top:1rem;">
-            <span class="ptag">IT consulting</span>
-            <span class="ptag">Network management</span>
-            <span class="ptag">Database admin</span>
-            <span class="ptag">Technical support</span>
-          </div>
+          <p class="exp-desc">Served as IT Consultant overseeing network infrastructure, managing databases, providing technical guidance, and implementing IT solutions to support business operations across the facility.</p>
+          <div class="tags"><span class="tag">IT Consulting</span><span class="tag">Network Management</span><span class="tag">Database Admin</span><span class="tag">Technical Support</span></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-wrap">
+    <div class="fade"><div class="sec-tag">Qualifications</div><h2>Certifications</h2></div>
+    <div class="cert-grid">
+
+      <div class="cert-card fade">
+        <div class="cert-logo">&#127758;</div>
+        <div class="cert-body">
+          <div class="cert-status in-progress">In Progress</div>
+          <div class="cert-name">Cisco CCNA</div>
+          <div class="cert-issuer">Cisco Systems</div>
+          <p class="cert-desc">Cisco Certified Network Associate — covering networking fundamentals, IP connectivity, IP services, security fundamentals, and automation. Strong hands-on knowledge backed by 5+ years of real-world networking experience.</p>
+          <div class="tags">
+            <span class="tag">Routing &amp; Switching</span>
+            <span class="tag">Network Security</span>
+            <span class="tag">IP Services</span>
+            <span class="tag">Automation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-card fade">
+        <div class="cert-logo">&#128737;</div>
+        <div class="cert-body">
+          <div class="cert-status in-progress">In Progress</div>
+          <div class="cert-name">CompTIA Security+</div>
+          <div class="cert-issuer">CompTIA</div>
+          <p class="cert-desc">Industry-standard cybersecurity certification covering threat analysis, cryptography, network security, identity management, and risk management. Globally recognised by organizations and government agencies.</p>
+          <div class="tags">
+            <span class="tag">Threat Analysis</span>
+            <span class="tag">Cryptography</span>
+            <span class="tag">Risk Management</span>
+            <span class="tag">Network Security</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="cert-note fade">&#128161; Both certifications are actively being pursued — completion expected soon. Current work experience directly supports and reinforces the knowledge required for both exams.</div>
+  </div>
+</section>
+
+<div class="divider"></div>
 
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-wrap">
-    <div class="section-top fade-up">
-      <div>
-        <div class="section-eyebrow">Portfolio</div>
-        <h2>Featured work</h2>
-      </div>
-    </div>
-    <div class="projects-grid">
-      <div class="proj-card featured fade-up">
+    <div class="fade"><div class="sec-tag">Portfolio</div><h2>Featured Work</h2></div>
+    <div class="proj-grid">
+      <div class="proj wide fade">
         <div class="proj-num">01</div>
-        <span class="proj-type">Networking</span>
-        <h3>Enterprise network for a sugar company</h3>
+        <span class="proj-cat">Networking</span>
+        <h3>Enterprise Network — Sugar Company</h3>
         <p>Designed and deployed a full network infrastructure for a large sugar company — covering multiple departments with structured cabling, switches, routers, and secure internal communication across the entire facility.</p>
-        <div class="proj-tags">
-          <span class="ptag">LAN/WAN</span>
-          <span class="ptag">Structured cabling</span>
-          <span class="ptag">Routing & switching</span>
-          <span class="ptag">Firewall</span>
-        </div>
+        <div class="tags"><span class="tag">LAN/WAN</span><span class="tag">Structured cabling</span><span class="tag">Routing &amp; switching</span><span class="tag">Firewall</span></div>
       </div>
-      <div class="proj-card fade-up">
+      <div class="proj fade">
         <div class="proj-num">02</div>
-        <span class="proj-type">Networking</span>
-        <h3>Network setup for societies</h3>
+        <span class="proj-cat">Networking</span>
+        <h3>Network Setup for Societies</h3>
         <p>Built and configured network infrastructure for multiple societies — enabling reliable connectivity, shared resources, and secure access for staff and members.</p>
-        <div class="proj-tags">
-          <span class="ptag">Wi-Fi setup</span>
-          <span class="ptag">Network config</span>
-          <span class="ptag">LAN</span>
-        </div>
+        <div class="tags"><span class="tag">Wi-Fi setup</span><span class="tag">Network config</span><span class="tag">LAN</span></div>
       </div>
-      <div class="proj-card fade-up">
+      <div class="proj fade">
         <div class="proj-num">03</div>
-        <span class="proj-type">PC Repair</span>
-        <h3>Computer repair for organizations</h3>
-        <p>Provided hardware and software repair services for multiple organizations — diagnosing faults, replacing components, reinstalling operating systems, and restoring machines to full working condition.</p>
-        <div class="proj-tags">
-          <span class="ptag">Hardware repair</span>
-          <span class="ptag">OS installation</span>
-          <span class="ptag">Troubleshooting</span>
-          <span class="ptag">Maintenance</span>
-        </div>
+        <span class="proj-cat">PC Repair</span>
+        <h3>Computer Repair for Organizations</h3>
+        <p>Hardware and software repair services for multiple organizations — diagnosing faults, replacing components, reinstalling operating systems, and restoring machines to full working condition.</p>
+        <div class="tags"><span class="tag">Hardware repair</span><span class="tag">OS installation</span><span class="tag">Maintenance</span></div>
       </div>
-      <div class="proj-card fade-up">
+      <div class="proj fade">
         <div class="proj-num">04</div>
-        <span class="proj-type">Data Management</span>
-        <h3>Data collection, verification & analysis</h3>
-        <p>Handled end-to-end data workflows for organizations — collecting field data, verifying accuracy and integrity, and performing analysis to generate actionable reports and insights.</p>
-        <div class="proj-tags">
-          <span class="ptag">Data collection</span>
-          <span class="ptag">Verification</span>
-          <span class="ptag">Analysis</span>
-          <span class="ptag">Reporting</span>
-        </div>
+        <span class="proj-cat">Data Management</span>
+        <h3>Data Collection, Verification &amp; Analysis</h3>
+        <p>End-to-end data workflows for organizations — collecting field data, verifying accuracy, and performing analysis to generate actionable reports and insights.</p>
+        <div class="tags"><span class="tag">Data collection</span><span class="tag">Verification</span><span class="tag">Analysis</span></div>
       </div>
-      <div class="proj-card featured fade-up">
+      <div class="proj wide fade">
         <div class="proj-num">05</div>
-        <span class="proj-type">Database Management</span>
-        <h3>Database management for sugar companies & schools</h3>
+        <span class="proj-cat">Database Management</span>
+        <h3>Database Management — Sugar Companies &amp; Schools</h3>
         <p>Managed and maintained databases for sugar companies and schools — handling data entry, integrity checks, user access management, backups, and generating reports to support day-to-day operations and decision making.</p>
-        <div class="proj-tags">
-          <span class="ptag">Database admin</span>
-          <span class="ptag">Data integrity</span>
-          <span class="ptag">Backup & recovery</span>
-          <span class="ptag">Reporting</span>
-          <span class="ptag">Access management</span>
-        </div>
+        <div class="tags"><span class="tag">Database admin</span><span class="tag">Data integrity</span><span class="tag">Backup &amp; recovery</span><span class="tag">Reporting</span><span class="tag">Access management</span></div>
       </div>
     </div>
   </div>
 </section>
 
+<div class="divider"></div>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-wrap">
-    <div class="contact-wrap">
-      <div class="fade-up">
-        <div class="section-eyebrow">Contact</div>
-        <h2>Let's work together</h2>
-        <p class="contact-left">Whether you need a network built from scratch, a security audit, or a broken machine fixed — I'm here to help. Based in Kisumu, available on-site and remotely.</p>
-        <div class="contact-items" style="margin-bottom:2rem;">
-          <div class="ci">
-            <div class="ci-icon">✉️</div>
-            <div>
-              <div class="ci-label">Email</div>
-              <div class="ci-val">okoth.bahati@gmail.com</div>
-            </div>
-          </div>
-          <div class="ci">
-            <div class="ci-icon">📍</div>
-            <div>
-              <div class="ci-label">Location</div>
-              <div class="ci-val">Kisumu, Kenya</div>
-            </div>
-          </div>
-          <div class="ci">
-            <div class="ci-icon">⚡</div>
-            <div>
-              <div class="ci-label">Response time</div>
-              <div class="ci-val">Within 24 hours</div>
-            </div>
-          </div>
+    <div class="contact-grid">
+      <div class="fade">
+        <div class="sec-tag">Get in Touch</div>
+        <h2>Let's Work Together</h2>
+        <p class="contact-intro">Whether you need a network built from scratch, a security audit, or a broken machine fixed — I'm here to help. Based in Kisumu, available on-site and remotely across Kenya.</p>
+        <div class="contact-info">
+          <div class="ci"><div class="ci-ic">&#9993;</div><div><div class="ci-lbl">Email</div><div class="ci-val">okoth.bahati@gmail.com</div></div></div>
+          <div class="ci"><div class="ci-ic">&#128205;</div><div><div class="ci-lbl">Location</div><div class="ci-val">Kisumu, Kenya</div></div></div>
+          <div class="ci"><div class="ci-ic">&#9889;</div><div><div class="ci-lbl">Response time</div><div class="ci-val">Within 24 hours</div></div></div>
         </div>
       </div>
-
-      <!-- CONTACT FORM -->
-      <div class="contact-highlight fade-up">
-        <h3>Send a message</h3>
+      <div class="form-box fade">
+        <h3>Send a Message</h3>
         <p>Fill in the form and I'll get back to you shortly.</p>
-        <div class="form-group">
-          <label class="form-label">Full name</label>
-          <input type="text" class="form-input" placeholder="e.g. John Kamau" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Email address</label>
-          <input type="email" class="form-input" placeholder="you@example.com" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Service needed</label>
-          <select class="form-input">
-            <option value="" disabled selected>Select a service…</option>
-            <option>Network design & setup</option>
+        <div class="fg"><label class="fl">Full name</label><input type="text" class="fi" placeholder="e.g. John Kamau"></div>
+        <div class="fg"><label class="fl">Email address</label><input type="email" class="fi" placeholder="you@example.com"></div>
+        <div class="fg"><label class="fl">Service needed</label>
+          <select class="fi">
+            <option value="" disabled selected>Select a service&#8230;</option>
+            <option>Network design &amp; setup</option>
             <option>Security audit</option>
-            <option>PC repair & maintenance</option>
+            <option>PC repair &amp; maintenance</option>
             <option>IT support</option>
-            <option>Data backup & recovery</option>
-            <option>CCTV & surveillance</option>
+            <option>Data backup &amp; recovery</option>
+            <option>CCTV &amp; surveillance</option>
+            <option>Database management</option>
+            <option>Data collection &amp; analysis</option>
             <option>Other</option>
           </select>
         </div>
-        <div class="form-group">
-          <label class="form-label">Message</label>
-          <textarea class="form-input form-textarea" placeholder="Tell me about your project or issue…"></textarea>
-        </div>
-        <button class="btn-dark form-submit" onclick="handleSubmit(this)">Send message →</button>
-        <div class="form-success" id="formSuccess">✅ Message sent! I'll be in touch within 24 hours.</div>
+        <div class="fg"><label class="fl">Message</label><textarea class="fi" placeholder="Tell me about your project or issue&#8230;"></textarea></div>
+        <button class="fsub" onclick="handleSubmit(this)">Send Message &#8594;</button>
+        <div class="fsuccess" id="formSuccess">&#10003; Message sent! I'll be in touch within 24 hours.</div>
       </div>
     </div>
   </div>
@@ -1180,47 +554,30 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 3px; }
 
 <footer>
   <div>
-    <div class="footer-name">Bahati Okoth</div>
-    <p>© 2026 · IT Specialist · Kisumu</p>
+    <div class="foot-brand">Bahati Okoth</div>
+    <p>&#169; 2026 &middot; IT Specialist &middot; Kisumu, Kenya</p>
   </div>
-  <div class="footer-avail">Available for hire</div>
+  <div class="foot-avail">Available for hire</div>
 </footer>
 
 <script>
-function toggleMenu(btn) {
-  btn.classList.toggle('open');
-  document.getElementById('mobileMenu').classList.toggle('open');
-  document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+function toggleMenu(btn){btn.classList.toggle("open");document.getElementById("mobileMenu").classList.toggle("open");document.body.style.overflow=document.getElementById("mobileMenu").classList.contains("open")?"hidden":""}
+function closeMenu(){document.querySelector(".hamburger").classList.remove("open");document.getElementById("mobileMenu").classList.remove("open");document.body.style.overflow=""}
+async function handleSubmit(btn){
+  const box=btn.closest(".form-box");
+  const inputs=box.querySelectorAll(".fi");
+  let valid=true;
+  inputs.forEach(i=>{if(!i.value.trim()){i.style.borderColor="rgba(255,100,100,0.6)";valid=false}else{i.style.borderColor=""}});
+  if(!valid)return;
+  const [name,email,service,message]=Array.from(inputs).map(i=>i.value);
+  btn.textContent="Sending…";btn.disabled=true;
+  try{
+    const res=await fetch("https://formspree.io/f/xwvyvkaj",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({name,email,service,message})});
+    if(res.ok){btn.style.display="none";document.getElementById("formSuccess").style.display="block";}
+    else{btn.textContent="Send Message →";btn.disabled=false;alert("Something went wrong. Please try again.");}
+  }catch(e){btn.textContent="Send Message →";btn.disabled=false;alert("Network error. Please try again.");}
 }
-function closeMenu() {
-  document.querySelector('.hamburger').classList.remove('open');
-  document.getElementById('mobileMenu').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function handleSubmit(btn) {
-  const inputs = btn.closest('.contact-highlight').querySelectorAll('.form-input');
-  let valid = true;
-  inputs.forEach(i => { if (!i.value.trim()) { i.style.borderColor = 'red'; valid = false; } else { i.style.borderColor = ''; } });
-  if (!valid) return;
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  }, 1200);
-}
-
-const els = document.querySelectorAll('.fade-up');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in');
-      obs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08 });
-els.forEach(el => obs.observe(el));
+const els=document.querySelectorAll(".fade");const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");obs.unobserve(e.target)}})},{threshold:.08});els.forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
